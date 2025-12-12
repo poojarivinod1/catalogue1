@@ -3,12 +3,15 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  common:
-    uses: joindevops-actions/reusable-workflows/.github/workflows/common.yaml@main
-    with:
+  common: # name of the job
+    # search in google as "github actions calling reusable workflow" --> Reuse workflows --> we get syntax for reusable-workflows
+    uses: poojarivinod1/reusable-workflows/.github/workflows/common.yaml@main
+    # (poojarivinod1/reusable-workflows) is a reusable-workflows repository
+    # common.yaml: In this comman is the name of the job
+    with: # inputs
       project: roboshop
       component: catalogue
       app_type: nodejs
-    secrets:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    # secrets:
+    #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
