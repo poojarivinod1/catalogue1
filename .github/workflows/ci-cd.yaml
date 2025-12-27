@@ -1,6 +1,9 @@
 name: cicd
+#Can also be run manually when needed
 on:
+  #Runs automatically on push
   push:
+  #Can also be run manually when needed
   workflow_dispatch:
 jobs:
   common: # name of the job
@@ -12,6 +15,7 @@ jobs:
       project: roboshop
       component: catalogue
       app_type: nodejs
-    # secrets:
-    #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    # it received from the reusable workflow
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
